@@ -1,38 +1,103 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "countryHouse";
+  src: url("./assets/fonts/mr_countryhouseg_0.ttf") format("truetype");
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  font-family: 'countryHouse', sans-serif;
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.app{
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  background: linear-gradient(180deg, #0194fe 0%, #45bdff 54.9%, #7ddeff 100%);
+  overflow: hidden;
 }
 
-.App-link {
-  color: #61dafb;
+.logoSun{
+  width: 200px;
+  position: absolute;
+  animation: bounceSun 5s ease-in-out infinite;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.cloud {
+  position: absolute;
+  animation: moveClouds 30s linear infinite; /* Базовая анимация для облаков */
+}
+
+.cloud1 {
+  width: 100px;
+  top: 20%;
+  right: -300px;
+  animation-duration: 25s; /* Скорость облака */
+  animation-delay: 0s; /* Задержка перед началом движения */
+}
+
+.cloud2 {
+  width: 90px;
+  top: 40%;
+  right: -40px;
+  animation-duration: 35s;
+  animation-delay: 1s;
+}
+
+.cloud3 {
+  width: 250px;
+  top: 10%;
+  right: -250px;
+  animation-duration: 40s;
+  animation-delay: 10s;
+}
+
+.cloud4 {
+  width: 200px;
+  top: 60%;
+  right: -500px;
+  animation-duration: 30s;
+  animation-delay: 2s;
+}
+
+.wrapper{
+  position: relative;
+  display: flex;
+  gap: 150px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 60px;
+  font-weight: 700;
+}
+
+/* Анимация облаков */
+@keyframes moveClouds {
+  0% {
+    transform: translateX(0);
   }
-  to {
-    transform: rotate(360deg);
+  100% {
+    transform: translateX(-150vw); /* Движение облаков с одной стороны экрана на другую */
   }
 }
+@keyframes bounceSun {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0); /* Исходная позиция */
+  }
+  40% {
+    transform: translateY(-30px); /* Подпрыгивание */
+  }
+  60% {
+    transform: translateY(-15px); /* Небольшой отскок */
+  }
+}
+
